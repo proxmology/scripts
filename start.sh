@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PS3="Desea quitar aviso suscripcion proxmox? "
 select suscripcion in SI NO
