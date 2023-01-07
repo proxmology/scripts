@@ -23,7 +23,7 @@ textpurple=$(tput setab 5)
 txtgreen=$(tput bold ; tput setaf 2)
 
 
-PS3="${txtgreen}Desea quitar aviso suscripcion proxmox? ${txtrst}"
+PS3="${txtgreen}Desea quitar cartel suscripcion proxmox? ${txtrst}"
 select suscripcion in SI NO
 do
 	break;
