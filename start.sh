@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+txtrst=$(tput sgr0) 
+txtred=$(tput setab 1) 
+textpurple=$(tput setab 5) 
+txtgreen=$(tput bold ; tput setaf 2) 
+
 
  ____                           ___  _                   
 |  _ \ _ __ _____  ___ __ ___  / _ \| | ___   __ _ _   _ 
@@ -8,7 +13,7 @@
 |_|   |_|  \___/_/\_\_| |_| |_|\___/|_|\___/ \__, |\__, |
                                              |___/ |___/ 
 
-PS3="Desea quitar aviso suscripcion proxmox? "
+PS3= echo "${txtred}"Desea quitar aviso suscripcion proxmox? "${txtrst}
 select suscripcion in SI NO
 do
 	break;
