@@ -2,7 +2,6 @@
 function header_info {
 cat <<"EOF"
 
-
  ____                           ___  _
 |  _ \ _ __ _____  ___ __ ___  / _ \| | ___   __ _ _   _ 
 | |_) | '__/ _ \ \/ / '_ ` _ \| | | | |/ _ \ / _` | | | |
@@ -10,13 +9,21 @@ cat <<"EOF"
 |_|   |_|  \___/_/\_\_| |_| |_|\___/|_|\___/ \__, |\__, |
                                              |___/ |___/ 
                                              
+                                             
 EOF
 }
 clear
 header_info
 
 
-PS3="Desea quitar aviso suscripcion proxmox? "
+
+txtrst=$(tput sgr0) 
+txtred=$(tput setab 1) 
+textpurple=$(tput setab 5) 
+txtgreen=$(tput bold ; tput setaf 2)
+
+
+PS3="${txtgreen}Desea quitar aviso suscripcion proxmox? ${txtrst}"
 select suscripcion in SI NO
 do
 	break;
@@ -31,7 +38,7 @@ echo ""
 echo ""
 	
 fi
-PS3="Desea hacer update ? "	
+PS3="${txtgreen}Desea hacer update ? ${txtrst}"
 select update in SI NO
 do
 	break;
