@@ -14,15 +14,15 @@ Elige una opcion?"  PROCESADOR
     case $PROCESADOR in
 
         [1]* ) echo "usa CPU AMD, habilitando IOMMU"
-               #echo "iommu=pt" >> /etc/default/grub
-               #update-grub
-               #reboot 
+               echo "iommu=pt" >> /etc/default/grub
+               update-grub
+               reboot 
                echo "realizado"; break;;
 
         [2]* ) echo "usa CPU INTEL, habilitando IOMMU"
                echo "intel_iommu=on" >> /etc/default/grub
-               #update-grub
-               #reboot 
+               update-grub
+               reboot 
                echo "realizado"; break;;
 
         [3]* ) echo "Opción Seleccionada exit !"
