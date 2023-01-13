@@ -31,7 +31,6 @@ echo ""
 echo " tu procesador es: $PROC"
 echo ""
 echo ""
-#case $PROC in
 if [[ $1 = AuthenticAMD ]]
 then
 echo "usa CPU AMD, habilitando IOMMU"
