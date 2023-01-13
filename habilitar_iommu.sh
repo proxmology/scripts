@@ -45,5 +45,5 @@ echo "usa CPU AMD, habilitando IOMMU"
                #update-grub
                #reboot 
                echo "realizado en INTEL"
-               fi
+ fi
 
