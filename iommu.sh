@@ -1,28 +1,33 @@
 #!/usr/bin/env bash
 
-# Comprobar si IOMMU ya está habilitado
-if [ -e /sys/kernel/iommu_groups/0/devices/0000:00:00.0 ]; then
-    echo "IOMMU ya está habilitado"
-    exit 0
-fi
 
-# Obtener información de la CPU
-CPU_VENDOR=$(cat /proc/cpuinfo | grep vendor_id | head -n1 | awk '{print $3}')
+echo ""
+echo ""
 
-# Habilitar IOMMU para CPUs AMD
-if [ "$CPU_VENDOR" == "AuthenticAMD" ]; then
-    echo "Se ha detectado una CPU AMD, habilitando IOMMU"
-    echo "iommu=pt" >> /etc/default/grub
-    #update-grub
-    #reboot
-# Habilitar IOMMU para CPUs Intel
-elif [ "$CPU_VENDOR" == 'GenuineIntel' ]; then
-    echo "Se ha detectado una CPU Intel, habilitando IOMMU"
-    echo "intel_iommu=on" >> /etc/default/grub
-    #update-grub
-    #reboot
+while true; do
+    read -p "INSTALAR IOMMU?
+    1 AMD
+    2 INTEL
+    3 SALIR
 
-  
-fi
+Elige una opcion?"  PROCESADOR
+    case $PROCESADOR in
 
-exit 0
+        [1]* ) echo "usa CPU AMD, habilitando IOMMU"
+               #echo "iommu=pt" >> /etc/default/grub
+               #update-grub
+               #reboot 
+               echo "realizado"; break;;
+
+        [2]* ) echo "usa CPU INTEL, habilitando IOMMU"
+               echo "intel_iommu=on" >> /etc/default/grub
+               #update-grub
+               #reboot 
+               echo "realizado"; break;;
+
+        [3]* ) echo "Opción Seleccionada exit !"
+               exit; break;;
+
+        * ) echo "Seleccione una Opción deco usb hdd.";;
+    esac
+done
