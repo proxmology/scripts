@@ -1,8 +1,23 @@
 #!/usr/bin/env bash
 
-echo "buscando si ya tiene iommu"
+echo "buscando si ya tiene iommu AMD"
 echo ""
 existe=` grep -l iommu=pt /etc/default/grub | wc -l`
+if [ $existe -gt 0 ];then
+    echo ""
+    echo ""
+    echo "Encontrado"
+    exit
+
+else
+
+    echo "NO encontrado"
+
+fi
+
+echo "buscando si ya tiene iommu INTEL"
+echo ""
+existe=` grep -l intel_iommu=on /etc/default/grub | wc -l`
 if [ $existe -gt 0 ];then
     echo ""
     echo ""
