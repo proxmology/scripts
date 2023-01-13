@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Comprobar si IOMMU ya está habilitado
 if [ -e /sys/kernel/iommu_groups/0/devices/0000:00:00.0 ]; then
