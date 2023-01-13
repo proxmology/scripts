@@ -16,7 +16,7 @@ if [ "$CPU_VENDOR" == "AuthenticAMD" ]; then
     update-grub
     reboot
 # Habilitar IOMMU para CPUs Intel
-else [ "$CPU_VENDOR" == "GenuineIntel" ]; then
+elif [ "$CPU_VENDOR" == "GenuineIntel" ]; then
     echo "Se ha detectado una CPU Intel, habilitando IOMMU"
     echo "intel_iommu=on" >> /etc/default/grub
     update-grub
@@ -24,3 +24,5 @@ else [ "$CPU_VENDOR" == "GenuineIntel" ]; then
 
   
 fi
+
+exit 0
