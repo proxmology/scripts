@@ -1,8 +1,22 @@
 #!/usr/bin/env bash
 
+echo "buscando si ya tiene iommu"
+echo ""
+existe=` grep -l iommu=pt /etc/default/grub | wc -l`
+if [ $existe -gt 0 ];then
+    echo ""
+    echo ""
+    echo "Encontrado"
+    exit
 
-echo ""
-echo ""
+else
+
+    echo "NO encontrado"
+
+fi
+
+    echo ""
+    echo ""
 
 while true; do
     read -p "INSTALAR IOMMU?
