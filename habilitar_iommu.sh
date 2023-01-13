@@ -23,3 +23,5 @@ elif [ "$CPU_VENDOR" == "GenuineIntel" ]; then
     reboot
 else
     echo "
+  
+fi
