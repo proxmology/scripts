@@ -13,7 +13,7 @@ bash -c "$(wget -qLO - https://raw.githubusercontent.com/proxmology/proxmox/main
 
 ```
 
-## - **Script para activar IOMMU para intel & amd
+## - **Script para activar IOMMU para intel & amd**
 
 ```
 wget -O - https://raw.githubusercontent.com/proxmology/proxmox/main/habilitar_iommu.sh | bash
