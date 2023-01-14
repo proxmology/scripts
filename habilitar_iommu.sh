@@ -1,27 +1,28 @@
 #!/usr/bin/env bash
 
-# Check if IOMMU is already enabled
+# Comprobar si IOMMU ya está habilitado
 if [ -e /sys/kernel/iommu_groups/0/devices/0000:00:00.0 ]; then
-    echo "IOMMU is already enabled"
+    echo "IOMMU ya está habilitado"
     exit 0
 fi
 
-# Get CPU information
+# Obtener información de la CPU
 CPU_VENDOR=$(cat /proc/cpuinfo | grep vendor_id | head -n1 | awk '{print $3}')
 
-# Enable IOMMU for AMD CPUs
+# Habilitar IOMMU para CPUs AMD
 if [ "$CPU_VENDOR" == "AuthenticAMD" ]; then
-    echo "AMD CPU detected, enabling IOMMU"
+    echo "Se ha detectado una CPU AMD, habilitando IOMMU"
     echo "iommu=pt" >> /etc/default/grub
     update-grub
     reboot
-# Enable IOMMU for Intel CPUs
-elif [ "$CPU_VENDOR" == "GenuineIntel" ]; then
-    echo "Intel CPU detected, enabling IOMMU"
+# Habilitar IOMMU para CPUs Intel
+fi
+if [ "$CPU_VENDOR" == "GenuineIntel" ]; then
+    echo "Se ha detectado una CPU Intel, habilitando IOMMU"
     echo "intel_iommu=on" >> /etc/default/grub
+    echo "pcie_acs_override=downstream" >> /etc/default/grub
     update-grub
     reboot
 else
-    echo "Unsupported CPU vendor"
-    exit 1
+    echo "No se ha detectado una CPU compatible para habilitar IOMMU"
 fi
