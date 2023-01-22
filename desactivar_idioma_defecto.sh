@@ -16,7 +16,7 @@ else
     echo -e "Acquire::Languages \"none\"; Acquire::IndexTargets::deb::Contents-deb::DefaultEnabled \"false\";\\n" > /etc/apt/apt.conf.d/30desdability-lang
 
     echo "------------------------------------------"
-    echo "* El dioma por defecto se ha desactivado *"
+    echo "* El idioma por defecto se ha desactivado *"
     echo "------------------------------------------"
 
     echo ""
