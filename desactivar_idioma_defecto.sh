@@ -6,7 +6,7 @@
 if [ -f "/etc/apt/apt.conf.d/30desdability-lang" ];then
 
     echo "-------------------------------------------"
-    echo "* El idioma por decto ya esta desactivado *"
+    echo "* El idioma por defecto ya esta desactivado *"
     echo "-------------------------------------------"
 
     echo ""
