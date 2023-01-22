@@ -22,6 +22,6 @@ wget -O - https://raw.githubusercontent.com/proxmology/proxmox/main/habilitar_io
 ## - **Script para desactivar el idioma por defecto**
 
 ```
-bash -c "$(wget -qLO - https://github.com/proxmology/scripts/blob/main/desactivar_idioma_defecto.sh)"
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/proxmology/scripts/main/desactivar_idioma_defecto.sh)"
 
 ```
